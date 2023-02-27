@@ -37,8 +37,6 @@ function launchClosing() {
   modalbg.classList.remove("visible");
 }
 
-termsConditions.addEventListener("change", isAccepted);
-
 // EVENLISTENER BOUTON SUBMIT et FONCTION POUR SUBMIT FORMULAIRE
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -140,6 +138,7 @@ function validInput(element) {
   formControl.dataset.errorVisible = "false";
 }
 
+// FONCTION POUR AFFICHER LE FORMULAIRE OU LA FENETRE DE REMERCIEMENTS
 function toggleFormVisibility() {
   form.classList.toggle("hidden");
   confirmation.classList.toggle("hidden");
