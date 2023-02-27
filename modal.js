@@ -12,14 +12,14 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const modalbg = document.querySelector(".bground");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
-let form = document.querySelector("form");
-let firstName = document.querySelector("#first");
-let lastName = document.querySelector("#last");
-let email = document.querySelector("#email");
-let birthDate = document.querySelector("#birthdate");
-let termsConditions = document.querySelector("#checkbox1");
-let submitBtn = document.querySelector(".btn-submit");
-let confirmation = document.querySelector(".confirmation");
+const form = document.querySelector("form");
+const firstName = document.querySelector("#first");
+const lastName = document.querySelector("#last");
+const email = document.querySelector("#email");
+const birthDate = document.querySelector("#birthdate");
+const termsConditions = document.querySelector("#checkbox1");
+const submitBtn = document.querySelector(".btn-submit");
+const confirmation = document.querySelector(".confirmation");
 
 // EVEN LISTENER BOUTON "JE M'INSCRIS"
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -41,12 +41,12 @@ function launchClosing() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  let firstNameOk = verifyName(firstName);
-  let lastNameOk = verifyName(lastName);
-  let emailOk = verifyEmail();
-  let birthDateOk = verifyBirthDate();
-  let radioOk = isChecked();
-  let termsOk = isAccepted();
+  const firstNameOk = verifyName(firstName);
+  const lastNameOk = verifyName(lastName);
+  const emailOk = verifyEmail();
+  const birthDateOk = verifyBirthDate();
+  const radioOk = isChecked();
+  const termsOk = isAccepted();
 
   if (
     firstNameOk &&
@@ -65,7 +65,7 @@ form.addEventListener("submit", (e) => {
 
 // Vérification PRÉNOM et NOM
 function verifyName(element) {
-  let elementVal = element.value.trim();
+  const elementVal = element.value.trim();
 
   if (elementVal === "" || elementVal.length < 2) {
     error(element);
@@ -76,8 +76,8 @@ function verifyName(element) {
 }
 // Vérification EMAIL
 function verifyEmail() {
-  let emailVal = email.value.trim();
-  let mailformat =
+  const emailVal = email.value.trim();
+  const mailformat =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   if (emailVal != emailVal.match(mailformat)) {
@@ -90,7 +90,7 @@ function verifyEmail() {
 
 // Vérification DATE DE NAISSANCE
 function verifyBirthDate() {
-  let dateVal = birthDate.value;
+  const dateVal = birthDate.value;
   if (!dateVal) {
     error(birthDate);
   } else {
@@ -101,8 +101,8 @@ function verifyBirthDate() {
 
 // Vérification VILLE CHECKED
 function isChecked() {
-  let firstRadio = document.querySelector("input[name='location']");
-  let checkedRadio = document.querySelector("input[name='location']:checked");
+  const firstRadio = document.querySelector("input[name='location']");
+  const checkedRadio = document.querySelector("input[name='location']:checked");
 
   if (checkedRadio === null) {
     error(firstRadio);
@@ -124,7 +124,7 @@ function isAccepted() {
 
 // FONCTION INPUT ERREUR
 function error(element) {
-  let formControl = element.parentElement;
+  const formControl = element.parentElement;
 
   //Mofifie la propriete data-error-visible
   formControl.dataset.errorVisible = "true";
@@ -132,7 +132,7 @@ function error(element) {
 
 // FONCTION INPUT VALID
 function validInput(element) {
-  let formControl = element.parentElement;
+  const formControl = element.parentElement;
 
   //Mofifie la propriete data-error-visible à son état initial
   formControl.dataset.errorVisible = "false";
